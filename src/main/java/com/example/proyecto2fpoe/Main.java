@@ -1,7 +1,10 @@
 package com.example.proyecto2fpoe;
 
+import com.example.proyecto2fpoe.View.GameStage;
 import javafx.application.Application;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class Main extends Application {
 
@@ -10,7 +13,7 @@ public class Main extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) {
-
+    public void start(Stage primaryStage) throws IOException {
+        GameStage.getInstance();
     }
 }
