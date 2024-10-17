@@ -21,17 +21,17 @@
    <children>
       <AnchorPane prefHeight="434.0" prefWidth="600.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#deb495" height="400.0" layoutX="-3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="433.0" />
-            <Circle fill="#e19868" layoutX="253.0" layoutY="361.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-            <Circle fill="#e19868" layoutX="84.0" layoutY="248.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-            <Circle fill="#e19868" layoutX="378.0" layoutY="202.0" radius="46.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-            <Circle fill="#e19868" layoutX="250.0" layoutY="260.0" radius="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-            <Circle fill="#e19868" layoutX="383.0" layoutY="81.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-            <Circle fill="#e19868" layoutX="112.0" layoutY="335.0" radius="42.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-            <Circle fill="#e19868" layoutX="172.0" layoutY="182.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-            <Circle fill="#e19868" layoutX="24.0" layoutY="123.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-            <Circle fill="#e19868" layoutX="250.0" layoutY="85.0" radius="67.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
-            <Circle fill="#e19868" layoutX="367.0" layoutY="339.0" radius="55.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#cadbf5" height="400.0" layoutX="-3.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="433.0" />
+            <Circle fill="#9dbef5" layoutX="253.0" layoutY="361.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Circle fill="#9dbef5" layoutX="84.0" layoutY="248.0" radius="14.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Circle fill="#9dbef5" layoutX="378.0" layoutY="202.0" radius="46.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Circle fill="#9dbef5" layoutX="250.0" layoutY="260.0" radius="60.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Circle fill="#9dbef5" layoutX="383.0" layoutY="81.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Circle fill="#9dbef5" layoutX="112.0" layoutY="335.0" radius="42.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Circle fill="#9dbef5" layoutX="172.0" layoutY="182.0" radius="18.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Circle fill="#9dbef5" layoutX="24.0" layoutY="123.0" radius="100.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Circle fill="#9dbef5" layoutX="250.0" layoutY="85.0" radius="67.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Circle fill="#9dbef5" layoutX="367.0" layoutY="339.0" radius="55.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
             <GridPane fx:id="sudokuGrid" hgap="16.0" layoutX="26.0" layoutY="18.0" prefHeight="347.0" prefWidth="374.0" vgap="16.0">
               <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -341,39 +341,39 @@
                   </TextField>
                </children>
             </GridPane>
-            <Line endX="38.70001220703125" endY="-370.0" fill="BLACK" layoutX="174.0" layoutY="388.0" startX="39.20001220703125" startY="-2.79998779296875" stroke="#d47837" strokeWidth="2.0">
+            <Line endX="38.70001220703125" endY="-370.0" fill="BLACK" layoutX="174.0" layoutY="388.0" startX="39.20001220703125" startY="-2.79998779296875" stroke="#5838b9" strokeWidth="2.0">
                <effect>
                   <DropShadow />
                </effect>
             </Line>
-            <Line endX="-87.0" endY="-38.79998779296875" layoutX="501.0" layoutY="182.0" startX="-488.6000061035156" startY="-38.79998779296875" stroke="#df8448" strokeWidth="2.0">
+            <Line endX="-87.0" endY="-38.79998779296875" layoutX="501.0" layoutY="182.0" startX="-488.6000061035156" startY="-38.79998779296875" stroke="#5838b9" strokeWidth="2.0">
                <effect>
                   <DropShadow />
                </effect>
             </Line>
-            <Line endX="-364.0" endY="-32.79998779296875" layoutX="778.0" layoutY="293.0" startX="-766.4000244140625" startY="-32.79998779296875" stroke="#df7428" strokeWidth="2.0">
+            <Line endX="-364.0" endY="-32.79998779296875" layoutX="778.0" layoutY="293.0" startX="-766.4000244140625" startY="-32.79998779296875" stroke="#5838b9" strokeWidth="2.0">
                <effect>
                   <DropShadow />
                </effect>
             </Line>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#5eac67" height="401.0" layoutX="430.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="164.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#a0dea0" height="401.0" layoutX="436.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="164.0" />
-            <Text fill="#839472" layoutX="459.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sudoku">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9dbef5" height="401.0" layoutX="430.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="164.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#9da3f5" height="401.0" layoutX="436.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="164.0" />
+            <Text fill="#9dbef5" layoutX="444.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sudoku">
                <font>
-                  <Font name="Rockwell" size="31.0" />
+                  <Font name="Rockwell" size="43.0" />
                </font>
             </Text>
-            <Text fill="#556346" layoutX="453.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Intentos fallidos: " wrappingWidth="119.0">
-               <font>
-                  <Font name="Rockwell" size="13.0" />
-               </font>
-            </Text>
-            <Text fill="#5c6651" layoutX="450.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aciertos: ">
+            <Text fill="#cadbf5" layoutX="453.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Intentos fallidos: " wrappingWidth="119.0">
                <font>
                   <Font name="Rockwell" size="13.0" />
                </font>
             </Text>
-            <Button layoutX="472.0" layoutY="182.0" mnemonicParsing="false" text="Ayuda!" textFill="#59ac07">
+            <Text fill="#cadbf5" layoutX="450.0" layoutY="118.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aciertos: ">
+               <font>
+                  <Font name="Rockwell" size="13.0" />
+               </font>
+            </Text>
+            <Button layoutX="472.0" layoutY="182.0" mnemonicParsing="false" text="Ayuda!" textFill="#b39df5">
                <font>
                   <Font name="Rockwell" size="20.0" />
                </font>
@@ -381,9 +381,9 @@
                   <InnerShadow />
                </effect>
             </Button>
-            <Text fill="#e4efd8" layoutX="459.0" layoutY="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sudoku">
+            <Text fill="#e4efd8" layoutX="444.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sudoku">
                <font>
-                  <Font name="Rockwell" size="31.0" />
+                  <Font name="Rockwell" size="43.0" />
                </font>
             </Text>
             <ImageView fitHeight="189.0" fitWidth="191.0" layoutX="411.0" layoutY="276.0" pickOnBounds="true" preserveRatio="true">
@@ -391,7 +391,7 @@
                   <Image url="@images/example.png" />
                </image>
             </ImageView>
-            <Text fill="#5c6651" layoutX="452.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ayudas restantes: ">
+            <Text fill="#cadbf5" layoutX="452.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ayudas restantes: ">
                <font>
                   <Font name="Rockwell" size="13.0" />
                </font>
