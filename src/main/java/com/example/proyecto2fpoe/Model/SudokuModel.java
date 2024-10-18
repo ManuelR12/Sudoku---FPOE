@@ -4,39 +4,38 @@ import com.example.proyecto2fpoe.Model.List.IList;
 import com.example.proyecto2fpoe.Model.List.ArrayList;
 
 import java.util.Random;
-import java.util.Collections;
 
 public class SudokuModel {
-    private static final int GRID_SIZE = 9;
-    private final IList<IList<Integer>> board;
+    private static final int GRID_SIZE = 6;  // Adjust to 6x6 grid
+    private IList<IList<Integer>> board;
 
     public SudokuModel() {
-        // Initialize the board with your custom ArrayList implementation
+        // Initialize the board as 6x6 grid using your custom ArrayList implementation
         board = new ArrayList<>();
         for (int i = 0; i < GRID_SIZE; i++) {
             IList<Integer> row = new ArrayList<>();
             for (int j = 0; j < GRID_SIZE; j++) {
-                row.addLast(0); // Initialize with zeros
+                row.addLast(0);  // Initialize with zeros
             }
             board.addLast(row);
         }
     }
 
     public void generatePuzzle(int emptyCells) {
-        fillBoard(); // Fill the board with a valid solution
-        removeNumbers(emptyCells); // Remove numbers to create a puzzle
+        fillBoard();          // Fill the board with a valid solution
+        removeNumbers(emptyCells);  // Remove numbers to create a puzzle
     }
 
     public IList<IList<Integer>> getBoard() {
         return board;
     }
 
-    // Fills the board with a valid solution
+    // Fills the board with a valid solution using backtracking
     private boolean fillBoard() {
         return fillBoardHelper(0, 0);
     }
 
-    // Backtracking helper with randomized numbers
+    // Backtracking helper method to fill the board
     private boolean fillBoardHelper(int row, int col) {
         if (row == GRID_SIZE) return true;
         if (col == GRID_SIZE) return fillBoardHelper(row + 1, 0);
@@ -54,10 +53,10 @@ public class SudokuModel {
         return false;
     }
 
-    // Returns a shuffled list of numbers 1 to 9
+    // Returns a shuffled list of numbers 1 to 6
     private IList<Integer> getShuffledNumbers() {
         IList<Integer> numbers = new ArrayList<>();
-        for (int i = 1; i <= 9; i++) {
+        for (int i = 1; i <= GRID_SIZE; i++) {
             numbers.addLast(i);
         }
         // Shuffle the IList numbers using Fisher-Yates
@@ -71,7 +70,9 @@ public class SudokuModel {
         return numbers;
     }
 
+    // Checks if placing num at (row, col) is valid
     private boolean isValid(int row, int col, int num) {
+        // Check the row and column
         for (int c = 0; c < GRID_SIZE; c++) {
             if (board.get(row).get(c) == num) return false;
         }
@@ -80,9 +81,10 @@ public class SudokuModel {
             if (board.get(r).get(col) == num) return false;
         }
 
-        int startRow = (row / 3) * 3;
+        // Check the 2x3 subgrid
+        int startRow = (row / 2) * 2;
         int startCol = (col / 3) * 3;
-        for (int r = startRow; r < startRow + 3; r++) {
+        for (int r = startRow; r < startRow + 2; r++) {
             for (int c = startCol; c < startCol + 3; c++) {
                 if (board.get(r).get(c) == num) return false;
             }
