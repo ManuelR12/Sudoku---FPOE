@@ -56,7 +56,7 @@ public class SudokuModel {
 
     // Returns a shuffled list of numbers 1 to 9
     private IList<Integer> getShuffledNumbers() {
-        IList<Integer> numbers = new ArrayListCustom<>();
+        IList<Integer> numbers = new ArrayList<>();
         for (int i = 1; i <= 9; i++) {
             numbers.addLast(i);
         }
