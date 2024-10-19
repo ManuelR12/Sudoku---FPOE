@@ -18,7 +18,7 @@ public class GameStage extends Stage {
         gameController = loader.getController();
         Scene scene = new Scene(root);
         setScene(scene);
-        setTitle("Sol eclipsado");
+        setTitle("Sudoku");
         getIcons().add(new Image(String.valueOf(getClass().getResource("/com/example/proyecto2fpoe/images/sudokuIcon.png"))));
         setResizable(false);
         show();
