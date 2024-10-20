@@ -131,8 +131,7 @@ public class GameController {
         IList<IList<Integer>> board = model.getBoard();
 
         for (Node node : sudokuGrid.getChildren()) {
-            if (node instanceof TextField) {
-                TextField textField = (TextField) node;
+            if (node instanceof TextField textField) {
                 if (textField.getText().isEmpty() && textField.isEditable() && textField.getPromptText().isEmpty()) {
                     emptyCells.add(textField);
                 }
