@@ -25,7 +25,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="afpc" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -74,7 +74,7 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "feature-help-button-JMRO",
+    "git-widget-placeholder": "develop",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/juanr/Desktop/Proyecto2-FPOE",
     "node.js.detected.package.eslint": "true",
@@ -113,7 +113,9 @@
       <workItem from="1729298816301" duration="3145000" />
       <workItem from="1729315211228" duration="885000" />
       <workItem from="1729349779993" duration="5260000" />
-      <workItem from="1729355390683" duration="3912000" />
+      <workItem from="1729355390683" duration="4950000" />
+      <workItem from="1729400564718" duration="204000" />
+      <workItem from="1729443394324" duration="1711000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;Agregadas las estructuras de datos List y LinkedList. Ademas se incorpora el modelo del Sudoku, SudokuModel&quot;">
       <option name="closed" value="true" />

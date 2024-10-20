@@ -4,6 +4,7 @@ import com.example.proyecto2fpoe.Model.List.IList;
 import com.example.proyecto2fpoe.Model.SudokuModel;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
@@ -22,7 +23,8 @@ public class GameController {
 
     private SudokuModel model;
     private final int SIZE = 6;
-    private final int MAX_HELP_USES = 3;
+    private final int MAX_HELP_USES = 6;
+    private int helpUses = 0;
 
     @FXML
     public void initialize() {
@@ -38,26 +40,36 @@ public class GameController {
         for (Node node : sudokuGrid.getChildren()) {
             if (node instanceof TextField txt) {
                 txt.textProperty().addListener((observable, oldValue, newValue) -> {
-                    // Check if the input is valid (only one character)
+
                     if (newValue.length() > 1) {
-                        txt.setText(oldValue);  // Restore the previous value
-                    } else {
-                        System.out.println("all good");  // Call checkGuess only when a valid input is given
+                        txt.setText(oldValue);
+                    } else if (!newValue.isEmpty() && newValue.matches("^[1-6]$")) {
+                        int row = GridPane.getRowIndex(txt);
+                        int col = GridPane.getColumnIndex(txt);
+                        Integer correctValue = model.getBoard().get(row).get(col);
+
+                        if (Integer.parseInt(newValue) == correctValue) {
+                            txt.setEditable(false);
+                            txt.setStyle("-fx-background-color: lightgreen;");
+                            txt.setBorder(null);
+                        } else {
+                            txt.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
+                            showAlert("Error", "Número incorrecto", "El número que ingresaste es incorrecto. Inténtalo de nuevo.");
+                        }
+                    } else if (newValue.isEmpty()) {
+                        txt.setStyle("");
                     }
                 });
 
-                // Listener for numbers only (and allow deletion)
                 txt.setTextFormatter(new TextFormatter<>(change -> {
                     String newText = change.getText();
 
-                    // Allow deletion (empty string) or valid numbers (1-6)
                     if (newText.isEmpty() || newText.matches("^[1-6]$")) {
                         return change;
                     }
 
-                    return null; // Reject changes that are not allowed
+                    return null;
                 }));
-
             }
         }
     }
@@ -156,6 +168,12 @@ public class GameController {
 
     @FXML
     public void handleHelp() {
+        if (helpUses >= MAX_HELP_USES) {
+            showAlert("Límite de ayudas", "Has alcanzado el máximo de ayudas.", "Ya no puedes usar más ayudas.");
+            helpButton.setDisable(true);
+            return;
+        }
+
         List<TextField> emptyCells = new ArrayList<>();
         IList<IList<Integer>> board = model.getBoard();
 
@@ -177,7 +195,21 @@ public class GameController {
             Integer recommendedValue = board.get(row).get(col);
 
             selectedCell.setPromptText(String.valueOf(recommendedValue));
+
+            helpUses++;
+
+            if (helpUses >= MAX_HELP_USES) {
+                showAlert("Límite de ayudas", "Has alcanzado el máximo de ayudas.", "Ya no puedes usar más ayudas .");
+                helpButton.setDisable(true);
+            }
         }
     }
 
+    public void showAlert(String title, String header, String content) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(header);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
 }
