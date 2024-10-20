@@ -50,6 +50,14 @@
                   <RowConstraints maxHeight="44.00003662109373" minHeight="10.0" prefHeight="41.60001220703123" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
+                  <TextField alignment="CENTER" prefHeight="102.0" prefWidth="48.0" style="-fx-background-color: #dfd5ce;">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <font>
+                        <Font name="Rockwell" size="19.0" />
+                     </font>
+                  </TextField>
                   <TextField alignment="CENTER" prefHeight="54.0" prefWidth="58.0" style="-fx-background-color: #dfd5ce;" GridPane.rowIndex="1">
                      <font>
                         <Font name="Rockwell" size="19.0" />
@@ -89,6 +97,14 @@
                      <effect>
                         <DropShadow />
                      </effect>
+                  </TextField>
+                  <TextField alignment="CENTER" prefHeight="390.0" prefWidth="600.0" style="-fx-background-color: #dfd5ce;" GridPane.columnIndex="1">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <font>
+                        <Font name="Rockwell" size="19.0" />
+                     </font>
                   </TextField>
                   <TextField alignment="CENTER" prefHeight="54.0" prefWidth="58.0" style="-fx-background-color: #dfd5ce;" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
@@ -130,6 +146,14 @@
                         <DropShadow />
                      </effect>
                   </TextField>
+                  <TextField alignment="CENTER" prefHeight="102.0" prefWidth="48.0" style="-fx-background-color: #dfd5ce;" GridPane.columnIndex="2">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <font>
+                        <Font name="Rockwell" size="19.0" />
+                     </font>
+                  </TextField>
                   <TextField alignment="CENTER" prefHeight="54.0" prefWidth="58.0" style="-fx-background-color: #dfd5ce;" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <font>
                         <Font name="Rockwell" size="19.0" />
@@ -170,23 +194,15 @@
                         <DropShadow />
                      </effect>
                   </TextField>
-                  <TextField alignment="CENTER" prefHeight="54.0" prefWidth="58.0" style="-fx-background-color: #dfd5ce;" GridPane.columnIndex="3" GridPane.rowIndex="5">
-                     <font>
-                        <Font name="Rockwell" size="19.0" />
-                     </font>
+                  <TextField alignment="CENTER" prefHeight="102.0" prefWidth="48.0" style="-fx-background-color: #dfd5ce;" GridPane.columnIndex="3">
                      <effect>
                         <DropShadow />
                      </effect>
-                  </TextField>
-                  <TextField alignment="CENTER" prefHeight="54.0" prefWidth="58.0" style="-fx-background-color: #dfd5ce;" GridPane.columnIndex="3" GridPane.rowIndex="4">
                      <font>
                         <Font name="Rockwell" size="19.0" />
                      </font>
-                     <effect>
-                        <DropShadow />
-                     </effect>
                   </TextField>
-                  <TextField alignment="CENTER" prefHeight="54.0" prefWidth="58.0" style="-fx-background-color: #dfd5ce;" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                  <TextField alignment="CENTER" prefHeight="54.0" prefWidth="58.0" style="-fx-background-color: #dfd5ce;" GridPane.columnIndex="3" GridPane.rowIndex="1">
                      <font>
                         <Font name="Rockwell" size="19.0" />
                      </font>
@@ -202,13 +218,37 @@
                         <DropShadow />
                      </effect>
                   </TextField>
-                  <TextField alignment="CENTER" prefHeight="54.0" prefWidth="58.0" style="-fx-background-color: #dfd5ce;" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                  <TextField alignment="CENTER" prefHeight="54.0" prefWidth="58.0" style="-fx-background-color: #dfd5ce;" GridPane.columnIndex="3" GridPane.rowIndex="3">
                      <font>
                         <Font name="Rockwell" size="19.0" />
                      </font>
                      <effect>
                         <DropShadow />
                      </effect>
+                  </TextField>
+                  <TextField alignment="CENTER" prefHeight="54.0" prefWidth="58.0" style="-fx-background-color: #dfd5ce;" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                     <font>
+                        <Font name="Rockwell" size="19.0" />
+                     </font>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </TextField>
+                  <TextField alignment="CENTER" prefHeight="54.0" prefWidth="58.0" style="-fx-background-color: #dfd5ce;" GridPane.columnIndex="3" GridPane.rowIndex="5">
+                     <font>
+                        <Font name="Rockwell" size="19.0" />
+                     </font>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </TextField>
+                  <TextField alignment="CENTER" prefHeight="102.0" prefWidth="48.0" style="-fx-background-color: #dfd5ce;" GridPane.columnIndex="4">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <font>
+                        <Font name="Rockwell" size="19.0" />
+                     </font>
                   </TextField>
                   <TextField alignment="CENTER" prefHeight="54.0" prefWidth="58.0" style="-fx-background-color: #dfd5ce;" GridPane.columnIndex="4" GridPane.rowIndex="1">
                      <font>
@@ -250,6 +290,14 @@
                         <DropShadow />
                      </effect>
                   </TextField>
+                  <TextField alignment="CENTER" prefHeight="102.0" prefWidth="48.0" style="-fx-background-color: #dfd5ce;" GridPane.columnIndex="5">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <font>
+                        <Font name="Rockwell" size="19.0" />
+                     </font>
+                  </TextField>
                   <TextField alignment="CENTER" prefHeight="54.0" prefWidth="58.0" style="-fx-background-color: #dfd5ce;" GridPane.columnIndex="5" GridPane.rowIndex="1">
                      <font>
                         <Font name="Rockwell" size="19.0" />
@@ -290,54 +338,6 @@
                         <DropShadow />
                      </effect>
                   </TextField>
-                  <TextField alignment="CENTER" prefHeight="102.0" prefWidth="48.0" style="-fx-background-color: #dfd5ce;">
-                     <effect>
-                        <DropShadow />
-                     </effect>
-                     <font>
-                        <Font name="Rockwell" size="19.0" />
-                     </font>
-                  </TextField>
-                  <TextField alignment="CENTER" prefHeight="390.0" prefWidth="600.0" style="-fx-background-color: #dfd5ce;" GridPane.columnIndex="1">
-                     <effect>
-                        <DropShadow />
-                     </effect>
-                     <font>
-                        <Font name="Rockwell" size="19.0" />
-                     </font>
-                  </TextField>
-                  <TextField alignment="CENTER" prefHeight="102.0" prefWidth="48.0" style="-fx-background-color: #dfd5ce;" GridPane.columnIndex="2">
-                     <effect>
-                        <DropShadow />
-                     </effect>
-                     <font>
-                        <Font name="Rockwell" size="19.0" />
-                     </font>
-                  </TextField>
-                  <TextField alignment="CENTER" prefHeight="102.0" prefWidth="48.0" style="-fx-background-color: #dfd5ce;" GridPane.columnIndex="3">
-                     <effect>
-                        <DropShadow />
-                     </effect>
-                     <font>
-                        <Font name="Rockwell" size="19.0" />
-                     </font>
-                  </TextField>
-                  <TextField alignment="CENTER" prefHeight="102.0" prefWidth="48.0" style="-fx-background-color: #dfd5ce;" GridPane.columnIndex="4">
-                     <effect>
-                        <DropShadow />
-                     </effect>
-                     <font>
-                        <Font name="Rockwell" size="19.0" />
-                     </font>
-                  </TextField>
-                  <TextField alignment="CENTER" prefHeight="102.0" prefWidth="48.0" style="-fx-background-color: #dfd5ce;" GridPane.columnIndex="5">
-                     <effect>
-                        <DropShadow />
-                     </effect>
-                     <font>
-                        <Font name="Rockwell" size="19.0" />
-                     </font>
-                  </TextField>
                </children>
             </GridPane>
             <Line endX="38.70001220703125" endY="-370.0" fill="BLACK" layoutX="174.0" layoutY="388.0" startX="39.20001220703125" startY="-2.79998779296875" stroke="#5838b9" strokeWidth="2.0">
@@ -372,7 +372,7 @@
                   <Font name="Rockwell" size="13.0" />
                </font>
             </Text>
-            <Button layoutX="472.0" layoutY="182.0" mnemonicParsing="false" text="Ayuda!" textFill="#b39df5">
+            <Button fx:id="helpButton" layoutX="472.0" layoutY="182.0" mnemonicParsing="false" onAction="#handleHelp" text="Ayuda!" textFill="#b39df5">
                <font>
                   <Font name="Rockwell" size="20.0" />
                </font>
