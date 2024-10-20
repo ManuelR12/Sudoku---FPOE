@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.layout.GridPane;
 
 import java.util.ArrayList;
@@ -30,7 +31,35 @@ public class GameController {
         populateGrid();
         printBoard(model.getBoard());
         assignGridIndex();
+        assignListeners();
+    }
 
+    private void assignListeners() {
+        for (Node node : sudokuGrid.getChildren()) {
+            if (node instanceof TextField txt) {
+                txt.textProperty().addListener((observable, oldValue, newValue) -> {
+                    // Check if the input is valid (only one character)
+                    if (newValue.length() > 1) {
+                        txt.setText(oldValue);  // Restore the previous value
+                    } else {
+                        System.out.println("all good");  // Call checkGuess only when a valid input is given
+                    }
+                });
+
+                // Listener for numbers only (and allow deletion)
+                txt.setTextFormatter(new TextFormatter<>(change -> {
+                    String newText = change.getText();
+
+                    // Allow deletion (empty string) or valid numbers (1-6)
+                    if (newText.isEmpty() || newText.matches("^[1-6]$")) {
+                        return change;
+                    }
+
+                    return null; // Reject changes that are not allowed
+                }));
+
+            }
+        }
     }
 
     private void assignGridIndex() {
