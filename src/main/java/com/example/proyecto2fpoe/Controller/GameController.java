@@ -4,18 +4,24 @@ import com.example.proyecto2fpoe.Model.List.IList;
 import com.example.proyecto2fpoe.Model.SudokuModel;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
 public class GameController {
     @FXML
     private GridPane sudokuGrid;
+    @FXML
+    private Button helpButton;
+
     private SudokuModel model;
     private final int SIZE = 6;
+    private final int MAX_HELP_USES = 3;
 
     @FXML
     public void initialize() {
@@ -23,9 +29,24 @@ public class GameController {
         model.generatePuzzle(0);
         populateGrid();
         printBoard(model.getBoard());
+        assignGridIndex();
 
     }
 
+    private void assignGridIndex() {
+        for (Node node : sudokuGrid.getChildren()) {
+            if (node instanceof TextField) {
+                Integer rowIndex = GridPane.getRowIndex(node);
+                Integer colIndex = GridPane.getColumnIndex(node);
+
+                if (rowIndex == null) rowIndex = 0;
+                if (colIndex == null) colIndex = 0;
+
+                GridPane.setRowIndex(node, rowIndex);
+                GridPane.setColumnIndex(node, colIndex);
+            }
+        }
+    }
 
     //DELETE BEFORE FINAL VERSION. JUST FOR TESTING PURPOSES.
     private static void printBoard(IList<IList<Integer>> board) {
@@ -41,15 +62,13 @@ public class GameController {
             if ((row + 1) % 2 == 0 && row != 5) {
                 System.out.println("------+-------");
             }
+
         }
     }
 
 
     public void populateGrid() {
         IList<IList<Integer>> board = model.getBoard();
-        if (board.size() != SIZE || board.get(0).size() != SIZE) {
-            throw new IllegalStateException("El tablero no tiene el tamaño esperado.");
-        }
 
         final int NUMBERS_PER_BLOCK = 2;
 
@@ -106,6 +125,31 @@ public class GameController {
         return null;
     }
 
+    @FXML
+    public void handleHelp() {
+        List<TextField> emptyCells = new ArrayList<>();
+        IList<IList<Integer>> board = model.getBoard();
 
+        for (Node node : sudokuGrid.getChildren()) {
+            if (node instanceof TextField) {
+                TextField textField = (TextField) node;
+                if (textField.getText().isEmpty() && textField.isEditable() && textField.getPromptText().isEmpty()) {
+                    emptyCells.add(textField);
+                }
+            }
+        }
+
+        if (!emptyCells.isEmpty()) {
+            Random random = new Random();
+            TextField selectedCell = emptyCells.get(random.nextInt(emptyCells.size()));
+
+            int row = GridPane.getRowIndex(selectedCell);
+            int col = GridPane.getColumnIndex(selectedCell);
+
+            Integer recommendedValue = board.get(row).get(col);
+
+            selectedCell.setPromptText(String.valueOf(recommendedValue));
+        }
+    }
 
 }
