@@ -77,11 +77,11 @@ public class SubGridAnimation extends AnimationAdapter {
 
     // Helper method to highlight a cell
     private void highlightCell(TextField cell, Color color) {
-        cell.setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY, null)));
+        cell.setBackground(new Background(new BackgroundFill(color, new CornerRadii(4), null)));
     }
 
     // Helper method to reset cell background
     private void resetCell(TextField cell) {
-        cell.setBackground(new Background(new BackgroundFill(Color.WHITE, CornerRadii.EMPTY, null)));
+        cell.setBackground(new Background(new BackgroundFill(Color.WHITE, new CornerRadii(4), null)));
     }
 }

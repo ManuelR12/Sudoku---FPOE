@@ -56,6 +56,8 @@ public class GameController {
 
                         if (Integer.parseInt(newValue) == correctValue) {
                             txt.setEditable(false);
+                            CorrectNumberAnimation correctNumberAnimation = new CorrectNumberAnimation(txt);
+                            correctNumberAnimation.start();
 
                             if (model.isRowComplete(row, sudokuGrid)) {
                                 onRowComplete(GridPane.getRowIndex(txt));  // Trigger row animation
