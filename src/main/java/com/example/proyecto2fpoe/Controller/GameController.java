@@ -1,9 +1,6 @@
 package com.example.proyecto2fpoe.Controller;
 
-import com.example.proyecto2fpoe.Model.Animation.ColumnAnimation;
-import com.example.proyecto2fpoe.Model.Animation.CorrectNumberAnimation;
-import com.example.proyecto2fpoe.Model.Animation.RowAnimation;
-import com.example.proyecto2fpoe.Model.Animation.SubGridAnimation;
+import com.example.proyecto2fpoe.Model.Animation.*;
 import com.example.proyecto2fpoe.Model.List.IList;
 import com.example.proyecto2fpoe.Model.SudokuModel;
 import javafx.fxml.FXML;
@@ -67,6 +64,9 @@ public class GameController {
                             }
                             if (model.isSubGridComplete(sudokuGrid, row, col)) {
                                 onSubGridComplete(row, col);
+                            }
+                            if (model.isBoardComplete(sudokuGrid)) {
+                                onBoardComplete();
                             }
                         } else {
                             txt.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
@@ -230,7 +230,7 @@ public class GameController {
         alert.showAndWait();
     }
 
-    public void onRowComplete(int rowIndex) {
+    private void onRowComplete(int rowIndex) {
         RowAnimation rowAnimation = new RowAnimation(sudokuGrid, rowIndex);
         rowAnimation.start();
     }
@@ -241,5 +241,9 @@ public class GameController {
     private void onSubGridComplete(Integer rowIndex, Integer columnIndex) {
         SubGridAnimation subGridAnimation = new SubGridAnimation(sudokuGrid, rowIndex, columnIndex);
         subGridAnimation.start();
+    }
+    private void onBoardComplete() {
+        BoardAnimation boardAnimation = new BoardAnimation(sudokuGrid);
+        boardAnimation.start();
     }
 }

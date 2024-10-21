@@ -2,8 +2,11 @@ package com.example.proyecto2fpoe.Model;
 
 import com.example.proyecto2fpoe.Model.List.IList;
 import com.example.proyecto2fpoe.Model.List.ArrayList;
+import javafx.animation.KeyFrame;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
+import javafx.util.Duration;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -120,6 +123,7 @@ public class SudokuModel {
 
         return true;  // The row is complete (contains numbers 1 to 6 with no duplicates)
     }
+
     public boolean isColumnComplete(int col, GridPane grid) {
         boolean[] seen = new boolean[GRID_SIZE + 1];  // To track numbers 1 to 6
         for (int row = 0; row < GRID_SIZE; row++) {
@@ -144,6 +148,7 @@ public class SudokuModel {
 
         return true;  // The row is complete (contains numbers 1 to 6 with no duplicates)
     }
+
     public boolean isSubGridComplete(GridPane sudokuGrid, int row, int col) {
         boolean[] seen = new boolean[GRID_SIZE + 1];  // To track numbers 1 to 6
         int startRow = (row / 2) * 2;
@@ -169,9 +174,34 @@ public class SudokuModel {
                 }
             }
         }
-        System.out.println(Arrays.toString(seen));
         return true;  // All checks passed, sub-grid is complete
     }
+
+    public boolean isBoardComplete(GridPane sudokuGrid) {
+        for (int row = 0; row < GRID_SIZE; row++) {
+            for (int col = 0; col < GRID_SIZE; col++) {
+                TextField cell = getTextFieldAt(sudokuGrid, row, col);
+                if (cell == null) return false;
+                String text = cell.getText().trim();
+                int num;
+                try {
+                    num = Integer.parseInt(text);
+                } catch (NumberFormatException e) {
+                    return false;  // If the TextField is empty or contains invalid input
+                }
+
+                // If num is 0 (empty) or num is already seen, the row is incomplete
+                if (num == 0) {
+                    return false;
+                }
+                }
+
+            }
+
+
+        return true;
+    }
+
 
 
 
