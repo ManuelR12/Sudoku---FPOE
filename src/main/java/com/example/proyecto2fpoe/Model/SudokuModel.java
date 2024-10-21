@@ -2,7 +2,10 @@ package com.example.proyecto2fpoe.Model;
 
 import com.example.proyecto2fpoe.Model.List.IList;
 import com.example.proyecto2fpoe.Model.List.ArrayList;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.GridPane;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class SudokuModel {
@@ -91,6 +94,95 @@ public class SudokuModel {
         }
 
         return true;
+    }
+
+    public boolean isRowComplete(int row, GridPane grid) {
+        boolean[] seen = new boolean[GRID_SIZE + 1];  // To track numbers 1 to 6
+        for (int col = 0; col < GRID_SIZE; col++) {
+            TextField cell = getTextFieldAt(grid, row, col);
+            if (cell == null) return false;
+            String text = cell.getText().trim();
+            int num;
+            try {
+                num = Integer.parseInt(text);
+            } catch (NumberFormatException e) {
+                return false;  // If the TextField is empty or contains invalid input
+            }
+
+            // If num is 0 (empty) or num is already seen, the row is incomplete
+            if (num == 0 || seen[num]) {
+                return false;
+            }
+
+            // Mark this number as seen
+            seen[num] = true;
+        }
+
+        return true;  // The row is complete (contains numbers 1 to 6 with no duplicates)
+    }
+    public boolean isColumnComplete(int col, GridPane grid) {
+        boolean[] seen = new boolean[GRID_SIZE + 1];  // To track numbers 1 to 6
+        for (int row = 0; row < GRID_SIZE; row++) {
+            TextField cell = getTextFieldAt(grid, row, col);
+            if (cell == null) return false;
+            String text = cell.getText().trim();
+            int num;
+            try {
+                num = Integer.parseInt(text);
+            } catch (NumberFormatException e) {
+                return false;  // If the TextField is empty or contains invalid input
+            }
+
+            // If num is 0 (empty) or num is already seen, the row is incomplete
+            if (num == 0 || seen[num]) {
+                return false;
+            }
+
+            // Mark this number as seen
+            seen[num] = true;
+        }
+
+        return true;  // The row is complete (contains numbers 1 to 6 with no duplicates)
+    }
+    public boolean isSubGridComplete(GridPane sudokuGrid, int row, int col) {
+        boolean[] seen = new boolean[GRID_SIZE + 1];  // To track numbers 1 to 6
+        int startRow = (row / 2) * 2;
+        int startCol = (col / 3) * 3; // Starting column of the sub-grid
+        System.out.println(startRow + " " + startCol);
+        // Iterate through the 2x3 sub-grid
+        for (int r = startRow; r < startRow + 2; r++) {
+            for (int c = startCol; c < startCol + 3; c++) {
+                TextField cell = getTextFieldAt(sudokuGrid, r, c);
+                if (cell != null) {
+                    String text = cell.getText();
+                    // Check if the cell is empty or already seen
+                    if (text.isEmpty() || text.equals("0")) {
+                        return false;  // Cell is empty
+                    }
+
+                    int num = Integer.parseInt(text);
+                    // Check for duplicates
+                    if (seen[num]) {
+                        return false;  // Duplicate found
+                    }
+                    seen[num] = true;  // Mark the number as seen
+                }
+            }
+        }
+        System.out.println(Arrays.toString(seen));
+        return true;  // All checks passed, sub-grid is complete
+    }
+
+
+
+
+    private TextField getTextFieldAt(GridPane gridPane, int row, int col) {
+        for (var node : gridPane.getChildren()) {
+            if (GridPane.getRowIndex(node) == row && GridPane.getColumnIndex(node) == col) {
+                return (TextField) node;  // Return the TextField if found
+            }
+        }
+        return null;  // Return null if no TextField is found at the specified location
     }
 
     // Removes random numbers to create a puzzle
