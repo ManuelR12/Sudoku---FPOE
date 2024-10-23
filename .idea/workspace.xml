@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c2168273-e7ab-4ee1-94b7-bf341c86047c" name="Changes" comment="&quot;Agregadas las estructuras de datos List y LinkedList. Ademas se incorpora el modelo del Sudoku, SudokuModel&quot;">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/proyecto2fpoe/Model/Animation/AdviceAnimation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/proyecto2fpoe/Controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/proyecto2fpoe/Controller/GameController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/proyecto2fpoe/View/GameStage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/proyecto2fpoe/View/GameStage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/proyecto2fpoe/game-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/proyecto2fpoe/game-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/example/proyecto2fpoe/images/example.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/example/proyecto2fpoe/images/example.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,9 +77,9 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "develop",
+    "git-widget-placeholder": "feature-game-end-JMRO",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/juanr/Desktop/Proyecto2-FPOE",
+    "last_opened_file_path": "C:/Users/juanr/OneDrive/Escritorio/Universidad/2341245_Juan Manuel Rodriguez_miniproyecto1",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -113,9 +116,9 @@
       <workItem from="1729298816301" duration="3145000" />
       <workItem from="1729315211228" duration="885000" />
       <workItem from="1729349779993" duration="5260000" />
-      <workItem from="1729355390683" duration="4950000" />
-      <workItem from="1729400564718" duration="204000" />
-      <workItem from="1729443394324" duration="1711000" />
+      <workItem from="1729355390683" duration="3912000" />
+      <workItem from="1729488308982" duration="173000" />
+      <workItem from="1729641809427" duration="4934000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;Agregadas las estructuras de datos List y LinkedList. Ademas se incorpora el modelo del Sudoku, SudokuModel&quot;">
       <option name="closed" value="true" />

@@ -24,23 +24,35 @@ public class GameStage extends Stage {
         show();
     }
 
-    public GameController getGameController() {
-        return gameController;
-    }
-
-    private static class GameStageHolder {
+    /**
+     * This static inner class holds the singleton instance of GameStage.
+     */
+    private static class GameStageHolder{
         private static GameStage INSTANCE;
     }
 
+    /**
+     * Returns the singleton instance of GameStage.
+     * If the instance does not exist, it creates a new one.
+     *
+     * @return the singleton instance of GameStage.
+     * @throws IOException if there is an error creating the stage.
+     */
     public static GameStage getInstance() throws IOException{
         GameStageHolder.INSTANCE =
-                GameStageHolder.INSTANCE!= null ? GameStageHolder.INSTANCE : new GameStage();
+                GameStageHolder.INSTANCE != null ?
+                        GameStageHolder.INSTANCE :
+                        new GameStage();
+
         return GameStageHolder.INSTANCE;
     }
 
+    /**
+     * Deletes the current singleton instance of GameStage.
+     * This closes the stage and sets the instance to null.
+     */
     public static void deleteInstance(){
-        GameStage.GameStageHolder.INSTANCE.close();
+        GameStageHolder.INSTANCE.close();
+        GameStageHolder.INSTANCE = null;
     }
-
-
 }
