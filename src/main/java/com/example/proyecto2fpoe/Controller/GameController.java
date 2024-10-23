@@ -84,16 +84,16 @@ public class GameController {
                             correct.setText(String.valueOf(correctEntries));
 
                             // Check for completion of row, column, or sub-grid
-                            if (model.isRowComplete(row, sudokuGrid)) {
+                            if (model.isRowValid(row, sudokuGrid)) {
                                 onRowComplete(row);
                             }
-                            if (model.isColumnComplete(col, sudokuGrid)) {
+                            if (model.isColValid(col, sudokuGrid)) {
                                 onColumnComplete(col);
                             }
-                            if (model.isSubGridComplete(sudokuGrid, row, col)) {
+                            if (model.isSubGridValid(sudokuGrid, row, col)) {
                                 onSubGridComplete(row, col);
                             }
-                            if (model.isBoardComplete(sudokuGrid)) {
+                            if (model.isBoardValid(sudokuGrid)) {
                                 onBoardComplete();
                                 adviceAnimation();
                                 winAlert("Has ganado!", "Completaste el sudoku!");
