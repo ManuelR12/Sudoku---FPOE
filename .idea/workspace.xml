@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2168273-e7ab-4ee1-94b7-bf341c86047c" name="Changes" comment="&quot;Agregadas las estructuras de datos List y LinkedList. Ademas se incorpora el modelo del Sudoku, SudokuModel&quot;">
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/proyecto2fpoe/Controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/proyecto2fpoe/Controller/GameController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/proyecto2fpoe/SudokuTest.java" beforeDir="false" />
-    </list>
+    <list default="true" id="c2168273-e7ab-4ee1-94b7-bf341c86047c" name="Changes" comment="&quot;Agregadas las estructuras de datos List y LinkedList. Ademas se incorpora el modelo del Sudoku, SudokuModel&quot;" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -117,7 +112,7 @@
       <workItem from="1729355390683" duration="3912000" />
       <workItem from="1729488308982" duration="173000" />
       <workItem from="1729641809427" duration="4934000" />
-      <workItem from="1729658241015" duration="326000" />
+      <workItem from="1729658241015" duration="683000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;Agregadas las estructuras de datos List y LinkedList. Ademas se incorpora el modelo del Sudoku, SudokuModel&quot;">
       <option name="closed" value="true" />
