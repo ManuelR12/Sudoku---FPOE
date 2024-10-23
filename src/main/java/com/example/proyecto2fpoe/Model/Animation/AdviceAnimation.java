@@ -6,9 +6,23 @@ import javafx.animation.PauseTransition;
 import javafx.animation.TranslateTransition;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
+/**
+ * This class provides an animation for a `Text` object in JavaFX.
+ * The animation consists of two phases:
+ * 1. A fade-in with a horizontal translation (moving right).
+ * 2. A brief pause followed by a fade-out with another horizontal translation.
+ */
+public class AdviceAnimation extends AnimationAdapter {
 
-public class AdviceAnimation {
-
+    /**
+     * Starts the animation on the given `Text` object. The animation includes:
+     * - Fade-in effect.
+     * - Translation (horizontal movement) of the text.
+     * - Pause.
+     * - Fade-out effect with a second translation.
+     *
+     * @param status the `Text` object to be animated.
+     */
     public void start(Text status){
 
         FadeTransition fadeTransition1 = new FadeTransition(Duration.seconds(1), status);
