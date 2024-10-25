@@ -30,6 +30,10 @@ public class GameController {
     @FXML
     private TextField helpsLeft;
 
+    private int[][] errorCount = new int[6][6]; // Contador de errores para cada celda
+    private int[] rowErrorCount = new int[6]; // Contador de errores por fila
+    private int[] colErrorCount = new int[6]; // Contador de errores por columna
+
     private SudokuModel model;
     private int helpUses = 0;
     private int remainingHelps = 6;
@@ -77,13 +81,14 @@ public class GameController {
                         Integer correctValue = model.getBoard().get(row).get(col);
 
                         if (Integer.parseInt(newValue) == correctValue) {
+                            // Número correcto
                             txt.setEditable(false);
                             CorrectNumberAnimation correctNumberAnimation = new CorrectNumberAnimation(txt);
                             correctNumberAnimation.start();
                             correctEntries++;
                             correct.setText(String.valueOf(correctEntries));
 
-                            // Check for completion of row, column, or sub-grid
+                            // Verificar si se completa la fila, columna, subgrid, o el tablero
                             if (model.isRowValid(row, sudokuGrid)) {
                                 onRowComplete(row);
                             }
@@ -93,24 +98,28 @@ public class GameController {
                             if (model.isSubGridValid(sudokuGrid, row, col)) {
                                 onSubGridComplete(row, col);
                             }
+                            // Comprobar si el tablero está completo, pero asegurarse de que no haya celdas incorrectas
                             if (model.isBoardValid(sudokuGrid)) {
-                                onBoardComplete();
-                                adviceAnimation();
-                                winAlert("Has ganado!", "Completaste el sudoku!");
+                                if (!containsInvalidCells()) {
+                                    onBoardComplete();
+                                    adviceAnimation();
+                                    winAlert("Has ganado!", "Completaste el sudoku!");
+                                }
                             }
                         } else {
+                            // Número incorrecto: marcar borde rojo y dejar el número en el campo
                             tries++;
                             attempts.setText(String.valueOf(tries));
                             txt.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
                             showAlert("Error", "Número incorrecto", "El número que ingresaste es incorrecto. Inténtalo de nuevo.");
-                            txt.clear();
                         }
                     } else if (newValue.isEmpty()) {
+                        // Restaurar estilo si el campo está vacío
                         txt.setStyle("");
                     }
                 });
 
-                // Set up text formatter to allow only numbers 1-6
+                // Formato para aceptar solo números del 1 al 6
                 txt.setTextFormatter(new TextFormatter<>(change -> {
                     String newText = change.getText();
                     if (newText.isEmpty() || newText.matches("^[1-6]$")) {
@@ -120,6 +129,17 @@ public class GameController {
                 }));
             }
         }
+    }
+
+    private boolean containsInvalidCells() {
+        for (Node node : sudokuGrid.getChildren()) {
+            if (node instanceof TextField txt) {
+                if (txt.getStyle().contains("red")) {
+                    return true; // Hay una celda con error
+                }
+            }
+        }
+        return false; // No hay celdas con error
     }
 
     /**
@@ -145,7 +165,7 @@ public class GameController {
      */
     public void populateGrid() {
         IList<IList<Integer>> board = model.getBoard();
-        final int NUMBERS_PER_BLOCK = 2;
+        final int NUMBERS_PER_BLOCK = 3;
 
         for (int blockRow = 0; blockRow < 3; blockRow++) {
             for (int blockCol = 0; blockCol < 2; blockCol++) {
