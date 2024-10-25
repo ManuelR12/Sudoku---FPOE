@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2168273-e7ab-4ee1-94b7-bf341c86047c" name="Changes" comment="&quot;Agregadas las estructuras de datos List y LinkedList. Ademas se incorpora el modelo del Sudoku, SudokuModel&quot;" />
+    <list default="true" id="c2168273-e7ab-4ee1-94b7-bf341c86047c" name="Changes" comment="&quot;Agregadas las estructuras de datos List y LinkedList. Ademas se incorpora el modelo del Sudoku, SudokuModel&quot;">
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/proyecto2fpoe/Controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/proyecto2fpoe/Controller/GameController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

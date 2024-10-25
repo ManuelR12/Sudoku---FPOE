@@ -180,7 +180,7 @@ public class GameController {
      */
     public void populateGrid() {
         IList<IList<Integer>> board = model.getBoard();
-        final int NUMBERS_PER_BLOCK = 3;
+        final int NUMBERS_PER_BLOCK = 2;
 
         for (int blockRow = 0; blockRow < 3; blockRow++) {
             for (int blockCol = 0; blockCol < 2; blockCol++) {
