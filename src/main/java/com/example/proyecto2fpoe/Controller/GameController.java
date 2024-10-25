@@ -67,6 +67,15 @@ public class GameController {
 
     /**
      * Assigns listeners to the TextFields in the Sudoku grid.
+     *
+     * This method iterates through each node in the Sudoku grid and assigns a listener to each
+     * TextField. The listener checks the user's input, ensuring it meets the specified criteria
+     * (only single digits between 1 and 6). It also updates the game state based on user input,
+     * including checking for correct values, updating attempts, and providing visual feedback.
+     * If the user completes a row, column, or sub-grid, the corresponding methods are called
+     * to handle completion actions. Additionally, if the entire board is valid and completed,
+     * a win alert is displayed.
+     *
      */
     private void assignListeners() {
         for (Node node : sudokuGrid.getChildren()) {
@@ -81,14 +90,12 @@ public class GameController {
                         Integer correctValue = model.getBoard().get(row).get(col);
 
                         if (Integer.parseInt(newValue) == correctValue) {
-                            // Número correcto
                             txt.setEditable(false);
                             CorrectNumberAnimation correctNumberAnimation = new CorrectNumberAnimation(txt);
                             correctNumberAnimation.start();
                             correctEntries++;
                             correct.setText(String.valueOf(correctEntries));
 
-                            // Verificar si se completa la fila, columna, subgrid, o el tablero
                             if (model.isRowValid(row, sudokuGrid)) {
                                 onRowComplete(row);
                             }
@@ -98,7 +105,6 @@ public class GameController {
                             if (model.isSubGridValid(sudokuGrid, row, col)) {
                                 onSubGridComplete(row, col);
                             }
-                            // Comprobar si el tablero está completo, pero asegurarse de que no haya celdas incorrectas
                             if (model.isBoardValid(sudokuGrid)) {
                                 if (!containsInvalidCells()) {
                                     onBoardComplete();
@@ -107,19 +113,16 @@ public class GameController {
                                 }
                             }
                         } else {
-                            // Número incorrecto: marcar borde rojo y dejar el número en el campo
                             tries++;
                             attempts.setText(String.valueOf(tries));
                             txt.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
                             showAlert("Error", "Número incorrecto", "El número que ingresaste es incorrecto. Inténtalo de nuevo.");
                         }
                     } else if (newValue.isEmpty()) {
-                        // Restaurar estilo si el campo está vacío
                         txt.setStyle("");
                     }
                 });
 
-                // Formato para aceptar solo números del 1 al 6
                 txt.setTextFormatter(new TextFormatter<>(change -> {
                     String newText = change.getText();
                     if (newText.isEmpty() || newText.matches("^[1-6]$")) {
@@ -131,15 +134,27 @@ public class GameController {
         }
     }
 
+    /**
+     * Checks if there are any invalid cells in the Sudoku grid.
+     *
+     * @return true if there are invalid cells (indicated by red border styles);
+     *         false if all cells are valid.
+     *
+     * This method iterates through the TextFields in the Sudoku grid and checks their
+     * styles. If any TextField has a red border style, it indicates that the user has
+     * entered an incorrect value. The method returns true if such a cell is found,
+     * otherwise, it returns false.
+     *
+     */
     private boolean containsInvalidCells() {
         for (Node node : sudokuGrid.getChildren()) {
             if (node instanceof TextField txt) {
                 if (txt.getStyle().contains("red")) {
-                    return true; // Hay una celda con error
+                    return true;
                 }
             }
         }
-        return false; // No hay celdas con error
+        return false;
     }
 
     /**

@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c2168273-e7ab-4ee1-94b7-bf341c86047c" name="Changes" comment="&quot;Agregadas las estructuras de datos List y LinkedList. Ademas se incorpora el modelo del Sudoku, SudokuModel&quot;">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/proyecto2fpoe/Controller/GameController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/proyecto2fpoe/Controller/GameController.java" afterDir="false" />
-    </list>
+    <list default="true" id="c2168273-e7ab-4ee1-94b7-bf341c86047c" name="Changes" comment="&quot;Agregadas las estructuras de datos List y LinkedList. Ademas se incorpora el modelo del Sudoku, SudokuModel&quot;" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,7 +70,7 @@
     "Repository.Attach.Sources": "false",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "feature-wrong-row-column-JMRO",
+    "git-widget-placeholder": "develop",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/juanr/OneDrive/Escritorio/Universidad/2341245_Juan Manuel Rodriguez_miniproyecto1",
     "node.js.detected.package.eslint": "true",
