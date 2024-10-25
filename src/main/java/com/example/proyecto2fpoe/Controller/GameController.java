@@ -72,46 +72,23 @@ public class GameController {
         for (Node node : sudokuGrid.getChildren()) {
             if (node instanceof TextField txt) {
                 txt.textProperty().addListener((observable, oldValue, newValue) -> {
-                    int row = GridPane.getRowIndex(txt);
-                    int col = GridPane.getColumnIndex(txt);
-
                     if (newValue.length() > 1) {
                         txt.setText(oldValue);
                     } else if (!newValue.isEmpty() && newValue.matches("^[1-6]$")) {
+                        int row = GridPane.getRowIndex(txt);
+                        int col = GridPane.getColumnIndex(txt);
+
                         Integer correctValue = model.getBoard().get(row).get(col);
-                        int newNumber = Integer.parseInt(newValue);
 
-                        boolean hasVisibleConflict = false;
-
-                        for (Node n : sudokuGrid.getChildren()) {
-                            if (n instanceof TextField otherTxt) {
-                                Integer otherRow = GridPane.getRowIndex(otherTxt);
-                                Integer otherCol = GridPane.getColumnIndex(otherTxt);
-
-                                if (!otherTxt.getText().isEmpty() && !otherTxt.isEditable()) {
-                                    if (otherRow == row && otherCol != col && otherTxt.getText().equals(newValue)) {
-                                        hasVisibleConflict = true;
-                                    }
-                                    if (otherCol == col && otherRow != row && otherTxt.getText().equals(newValue)) {
-                                        hasVisibleConflict = true;
-                                    }
-                                }
-                            }
-                        }
-
-                        if (hasVisibleConflict) {
-                            paintRowAndCol(row, col, "#fce4ec");
-                        }
-
-                        if (newNumber == correctValue) {
+                        if (Integer.parseInt(newValue) == correctValue) {
+                            // Número correcto
                             txt.setEditable(false);
-                            txt.setStyle("-fx-background-color: white; -fx-text-fill: black;"); // Restablece el estilo
                             CorrectNumberAnimation correctNumberAnimation = new CorrectNumberAnimation(txt);
                             correctNumberAnimation.start();
                             correctEntries++;
                             correct.setText(String.valueOf(correctEntries));
 
-                            // Verifica la validez de fila, columna y subcuadro
+                            // Verificar si se completa la fila, columna, subgrid, o el tablero
                             if (model.isRowValid(row, sudokuGrid)) {
                                 onRowComplete(row);
                             }
@@ -121,6 +98,7 @@ public class GameController {
                             if (model.isSubGridValid(sudokuGrid, row, col)) {
                                 onSubGridComplete(row, col);
                             }
+                            // Comprobar si el tablero está completo, pero asegurarse de que no haya celdas incorrectas
                             if (model.isBoardValid(sudokuGrid)) {
                                 if (!containsInvalidCells()) {
                                     onBoardComplete();
@@ -128,41 +106,20 @@ public class GameController {
                                     winAlert("Has ganado!", "Completaste el sudoku!");
                                 }
                             }
-
-                            // Actualiza los contadores de errores
-                            errorCount[row][col] = 0;
-                            rowErrorCount[row]--;
-                            colErrorCount[col]--;
-
-                            // Verifica si hay errores restantes en la fila y columna
-                            resetRowAndColStyle(row, col);
                         } else {
+                            // Número incorrecto: marcar borde rojo y dejar el número en el campo
                             tries++;
                             attempts.setText(String.valueOf(tries));
-                            txt.setStyle("-fx-border-color: red; -fx-border-width: 2px; -fx-text-fill: red;");
-
-                            // Actualiza los contadores de errores
-                            errorCount[row][col]++;
-                            rowErrorCount[row]++;
-                            colErrorCount[col]++;
-
-                            // Repaint the row and column
-                            paintRowAndCol(row, col, "#ffcccb");
+                            txt.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
                             showAlert("Error", "Número incorrecto", "El número que ingresaste es incorrecto. Inténtalo de nuevo.");
                         }
                     } else if (newValue.isEmpty()) {
-                        // Elimina un error si la celda está vacía
-                        if (errorCount[row][col] > 0) {
-                            errorCount[row][col]--;
-                            rowErrorCount[row]--;
-                            colErrorCount[col]--;
-                        }
-
-                        // Verifica si aún hay errores en la fila y columna antes de resetear el estilo
-                        resetRowAndColStyle(row, col);
+                        // Restaurar estilo si el campo está vacío
+                        txt.setStyle("");
                     }
                 });
 
+                // Formato para aceptar solo números del 1 al 6
                 txt.setTextFormatter(new TextFormatter<>(change -> {
                     String newText = change.getText();
                     if (newText.isEmpty() || newText.matches("^[1-6]$")) {
@@ -174,112 +131,16 @@ public class GameController {
         }
     }
 
-    private void paintRowAndCol(int row, int col, String color) {
-        boolean hasRevealedRowConflict = false;
-        boolean hasRevealedColConflict = false;
-
-        for (Node node : sudokuGrid.getChildren()) {
-            if (node instanceof TextField txt) {
-                Integer rowIndex = GridPane.getRowIndex(txt);
-                Integer colIndex = GridPane.getColumnIndex(txt);
-
-                if (rowIndex == row && !txt.getText().isEmpty() && !txt.isEditable()) {
-                    hasRevealedRowConflict = true;
-                }
-                if (colIndex == col && !txt.getText().isEmpty() && !txt.isEditable()) {
-                    hasRevealedColConflict = true;
-                }
-            }
-        }
-
-        if (hasRevealedRowConflict) {
-            for (Node node : sudokuGrid.getChildren()) {
-                if (node instanceof TextField txt) {
-                    Integer rowIndex = GridPane.getRowIndex(txt);
-                    if (rowIndex == row) {
-                        txt.setStyle("-fx-background-color: " + color + ";");
-                    }
-                }
-            }
-        }
-
-        if (hasRevealedColConflict) {
-            for (Node node : sudokuGrid.getChildren()) {
-                if (node instanceof TextField txt) {
-                    Integer colIndex = GridPane.getColumnIndex(txt);
-                    if (colIndex == col) {
-                        txt.setStyle("-fx-background-color: " + color + ";");
-                    }
-                }
-            }
-        }
-
-        if (!hasRevealedRowConflict && !hasRevealedColConflict) {
-            TextField currentInputField = (TextField) sudokuGrid.getChildren().get(row * 6 + col);
-            currentInputField.setStyle("-fx-border-color: red; -fx-border-width: 2px;");
-        }
-    }
-
     private boolean containsInvalidCells() {
         for (Node node : sudokuGrid.getChildren()) {
             if (node instanceof TextField txt) {
                 if (txt.getStyle().contains("red")) {
-                    return true;
+                    return true; // Hay una celda con error
                 }
             }
         }
-        return false;
+        return false; // No hay celdas con error
     }
-
-    private void resetRowAndColStyle(int row, int col) {
-        // Verifica si hay errores en la fila
-        boolean hasRowErrors = false;
-        for (int c = 0; c < SIZE; c++) {
-            if (errorCount[row][c] > 0) {
-                hasRowErrors = true;
-                break;
-            }
-        }
-
-        // Verifica si hay errores en la columna
-        boolean hasColErrors = false;
-        for (int r = 0; r < SIZE; r++) {
-            if (errorCount[r][col] > 0) {
-                hasColErrors = true;
-                break;
-            }
-        }
-
-        // Restablece los estilos según los errores encontrados
-        for (Node node : sudokuGrid.getChildren()) {
-            if (node instanceof TextField txt) {
-                int currentRow = GridPane.getRowIndex(txt);
-                int currentCol = GridPane.getColumnIndex(txt);
-
-                // Si la celda pertenece a la fila, verifica errores
-                if (currentRow == row) {
-                    if (hasRowErrors) {
-                        txt.setStyle("-fx-background-color: #ffcccb;"); // Color de error
-                    } else {
-                        txt.setStyle(""); // Restablecer a estilo normal
-                    }
-                }
-
-                // Si la celda pertenece a la columna, verifica errores
-                if (currentCol == col) {
-                    if (hasColErrors) {
-                        txt.setStyle("-fx-background-color: #ffcccb;"); // Color de error
-                    } else {
-                        txt.setStyle(""); // Restablecer a estilo normal
-                    }
-                }
-            }
-        }
-    }
-
-
-
-
 
     /**
      * Assigns grid indices to the TextFields in the Sudoku grid.
