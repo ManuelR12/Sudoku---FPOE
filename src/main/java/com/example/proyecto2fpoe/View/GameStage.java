@@ -9,6 +9,15 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
+/**
+ * Represents the game stage for the Sudoku application.
+ *
+ * This class initializes the game stage by loading the FXML layout, setting the title,
+ * adding an icon, and making the stage non-resizable. It also retrieves the associated
+ * controller for handling game logic.
+ *
+ */
+
 public class GameStage extends Stage {
     private GameController gameController;
 

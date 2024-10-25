@@ -30,10 +30,6 @@ public class GameController {
     @FXML
     private TextField helpsLeft;
 
-    private int[][] errorCount = new int[6][6]; // Contador de errores para cada celda
-    private int[] rowErrorCount = new int[6]; // Contador de errores por fila
-    private int[] colErrorCount = new int[6]; // Contador de errores por columna
-
     private SudokuModel model;
     private int helpUses = 0;
     private int remainingHelps = 6;
@@ -387,4 +383,3 @@ public class GameController {
         GameStage.getInstance();
     }
 }
-
